@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { Todo } from './todo'
 
-const STORAGE_KEY = 'todos';
+const STORAGE_KEY = 'todos'
 
 @Component({
   selector: 'app-root',
@@ -9,10 +9,10 @@ const STORAGE_KEY = 'todos';
   styles: []
 })
 export class AppComponent implements OnInit {
-  todos: Todo[];
+  todos: Todo[]
 
   ngOnInit(): void {
-    this.todos = this.restore();
+    this.todos = this.restore()
   }
 
   create(input: HTMLInputElement): void {
@@ -20,31 +20,31 @@ export class AppComponent implements OnInit {
       title: input.value,
       completed: false,
     })
-    input.value = '';
-    this.save();
+    input.value = ''
+    this.save()
   }
 
   toggle(todo: Todo): void {
-    todo.completed = !todo.completed;
-    this.save();
+    todo.completed = !todo.completed
+    this.save()
   }
 
   remove(todo: Todo): void {
-    const index = this.todos.indexOf(todo);
-    this.todos.splice(index, 1);
-    this.save();
+    const index = this.todos.indexOf(todo)
+    this.todos.splice(index, 1)
+    this.save()
   }
 
   private restore(): Todo[] {
-    const todosJson = localStorage.getItem(STORAGE_KEY);
+    const todosJson = localStorage.getItem(STORAGE_KEY)
     if (todosJson) {
-      return JSON.parse(todosJson);
+      return JSON.parse(todosJson)
     }
-    return [];
+    return []
   }
 
   private save(): void {
-    const todosJson = JSON.stringify(this.todos);
-    localStorage.setItem(STORAGE_KEY, todosJson);
+    const todosJson = JSON.stringify(this.todos)
+    localStorage.setItem(STORAGE_KEY, todosJson)
   }
 }
