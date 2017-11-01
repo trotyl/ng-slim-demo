@@ -17,7 +17,7 @@
   <footer class="footer" *ngIf="todos.length > 0">
     <span class="todo-count">
       <strong>{{todos.length}}</strong>
-      {todos.length, plural, =1 {item} other {items}} left
+      &ngsp;{todos.length, plural, =1 {item} other {items}} left
     </span>
   </footer>
 </section>
