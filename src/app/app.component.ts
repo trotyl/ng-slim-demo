@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core'
 import { Todo } from './todo'
 
 const STORAGE_KEY = 'todos'
@@ -11,8 +11,11 @@ const STORAGE_KEY = 'todos'
 export class AppComponent implements OnInit {
   todos: Todo[]
 
+  constructor(private cdRef: ChangeDetectorRef) { }
+
   ngOnInit(): void {
     this.todos = this.restore()
+    this.cdRef.detectChanges()
   }
 
   create(input: HTMLInputElement): void {
@@ -22,17 +25,20 @@ export class AppComponent implements OnInit {
     })
     input.value = ''
     this.save()
+    this.cdRef.detectChanges()
   }
 
   toggle(todo: Todo): void {
     todo.completed = !todo.completed
     this.save()
+    this.cdRef.detectChanges()
   }
 
   remove(todo: Todo): void {
     const index = this.todos.indexOf(todo)
     this.todos.splice(index, 1)
     this.save()
+    this.cdRef.detectChanges()
   }
 
   private restore(): Todo[] {
