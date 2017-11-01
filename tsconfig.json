@@ -1,9 +1,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
+    "outDir": "./tmp",
     "sourceMap": true,
     "declaration": false,
+    "module": "es2015",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -15,5 +16,16 @@
       "es2017",
       "dom"
     ]
-  }
+  },
+  "angularCompilerOptions": {
+    "annotationsAs": "static fields",
+    "annotateForClosureCompiler": true,
+    "preserveWhitespaces": false,
+    "strictMetadataEmit": true
+  },
+  "exclude": [
+    "node_modules",
+    "tmp",
+    "dist"
+  ]
 }
