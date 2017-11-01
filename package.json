@@ -13,7 +13,7 @@
     "ngc": "ngc",
     "preclosure": "rm -rf dist",
     "closure": "java -jar node_modules/google-closure-compiler/compiler.jar --flagfile closure.conf",
-    "postclosure": "cp src/index.html dist/index.html && cp node_modules/todomvc-app-css/index.css dist/index.css"
+    "postclosure": "cp src/*.html dist/ && cp node_modules/todomvc-app-css/index.css dist/ && cp node_modules/jquery/dist/jquery.min.js dist/"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +28,7 @@
     "@angular/router": "^5.0.0-rc.9",
     "core-js": "^2.4.1",
     "gh-pages": "^1.0.0",
+    "jquery": "^3.2.1",
     "rxjs": "^5.5.2",
     "todomvc-app-css": "^2.1.0",
     "zone.js": "^0.8.18"
